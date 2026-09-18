@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit · School Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('school')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">School Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="school.html">Dashboard</a>
+      <a href="school-assessment.html">My assessment</a>
+      <a href="school-movs.html">MOV files</a>
+      <a class="active" href="school-submit.html">Submit</a>
+      <a href="school-notifications.html">Notifications</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Submit to Division</h1>
+        <p class="muted">Sample Elementary School · 2026 SGC Functionality Assessment</p>
+      </div>
+      <span class="chip">Deadline in 12 days</span>
+    </div>
+
+    <div class="grid2">
+      <div class="box">
+        <b>Ready-to-send checklist</b>
+        <p class="muted">Division will not accept the packet until every row is clear.</p>
+        <ul class="checks">
+          <li><span class="mark ok">✓</span><div>Cycle is open<small class="muted" style="display:block">Deadline Sep 30, 2026</small></div></li>
+          <li><span class="mark warn">7</span><div>Encode 12 functionality indicators<small class="muted" style="display:block">7 complete · FI4, FI5, FI7 still open</small></div></li>
+          <li><span class="mark bad">!</span><div>Replace returned FI3A MOV<small class="muted" style="display:block">Minutes do not show 50%+1 quorum</small></div></li>
+          <li><span class="mark warn">○</span><div>Finalize Validity Form<small class="muted" style="display:block">Still marked Draft</small></div></li>
+          <li><span class="mark todo">3</span><div>School Head QA<small class="muted" style="display:block">Certify answers before send</small></div></li>
+          <li><span class="mark todo">4</span><div>Submit to SDO Cadiz City<small class="muted" style="display:block">Locks the school packet for validation</small></div></li>
+          <li><span class="mark todo">5</span><div>Division review<small class="muted" style="display:block">Composite Team checks MOVs against FAT Volume 2</small></div></li>
+          <li><span class="mark todo">6</span><div>Result<small class="muted" style="display:block">Functional if 10 of 12 FIs are validated</small></div></li>
+        </ul>
+        <div class="actions">
+          <a class="btn inline ghost" href="school-movs.html">Fix FI3A MOV</a>
+          <a class="btn inline ghost" href="school-assessment.html">Finish indicators</a>
+          <button class="btn inline disabled" type="button" disabled>Submit to Division</button>
+        </div>
+        <p class="muted" style="margin-top:12px">Submit stays locked until the returned MOV is replaced and School Head QA is done.</p>
+      </div>
+      <div class="box">
+        <b>What happens after you submit</b>
+        <p class="muted" style="margin-top:10px">1. The school packet is time-stamped and locked.</p>
+        <p class="muted">2. It appears in the Division validation queue.</p>
+        <p class="muted">3. A validator accepts or returns each Minimum MOV.</p>
+        <p class="muted">4. If returned, you resubmit only the flagged files.</p>
+        <p class="muted">5. When 10 of 12 FIs pass, the SGC is marked Functional.</p>
+        <b style="display:block;margin-top:16px">Packet preview</b>
+        <p class="muted" style="margin-top:8px">School ID 123456 · Sample Elementary School</p>
+        <p class="muted">Self-score: not yet · 7 of 12 encoded</p>
+        <p class="muted">MOVs: 14 files · 12 valid · 1 returned · 1 draft</p>
+        <p class="muted">Destination: SGC Focal, SDO Cadiz City</p>
+      </div>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

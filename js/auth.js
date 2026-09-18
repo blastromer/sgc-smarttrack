@@ -76,6 +76,7 @@ const ICONS = {
   Alerts: ico('<path d="M12 3l9 16H3L12 3z"/><path d="M12 10v4M12 17h.01"/>'),
   "My assessment": ico('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>'),
   "MOV files": ico('<path d="M3 7h6l2 2h10v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>'),
+  Submit: ico('<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>'),
   Notifications: ico('<path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9"/><path d="M10 20a2 2 0 0 0 4 0"/>'),
   "Sign out": ico('<path d="M10 7V5a2 2 0 0 1 2-2h7v18h-7a2 2 0 0 1-2-2v-2"/><path d="M4 12h11M12 9l3 3-3 3"/>')
 };
@@ -106,10 +107,12 @@ const NOTICE_LINKS = {
 
 function initChrome(user) {
   if (!document.body.classList.contains("app")) return;
+  if (user.role === "school") insertSchoolSubmitNav();
   decorateNav();
   pinSignOut();
   decorateKpis();
   mountNotices(user.role);
+  if (user.role === "school") mountSchoolFlow();
 }
 
 function decorateNav() {
@@ -249,4 +252,51 @@ function toggleNotices(event) {
   if (event) event.stopPropagation();
   document.getElementById("notice-panel")?.classList.toggle("open");
   document.getElementById("notice-backdrop")?.classList.toggle("open");
+}
+
+function insertSchoolSubmitNav() {
+  const nav = document.querySelector(".nav");
+  if (!nav || nav.querySelector('a[href="school-submit.html"]')) return;
+  const movs = nav.querySelector('a[href="school-movs.html"]');
+  if (!movs) return;
+  const a = document.createElement("a");
+  a.href = "school-submit.html";
+  a.textContent = "Submit";
+  if (location.pathname.endsWith("school-submit.html")) a.classList.add("active");
+  movs.after(a);
+}
+
+function mountSchoolFlow() {
+  const top = document.querySelector(".top");
+  if (!top || document.querySelector(".flow-wrap")) return;
+  const page = location.pathname.split("/").pop();
+  const steps = [
+    { n: "1", label: "Encode", hint: "7 / 12 FIs", href: "school-assessment.html", state: "done" },
+    { n: "2", label: "MOVs", hint: "1 returned", href: "school-movs.html", state: "now" },
+    { n: "3", label: "School Head QA", hint: "Not started", href: "school-submit.html", state: "lock" },
+    { n: "4", label: "Submit", hint: "Blocked", href: "school-submit.html", state: "lock" },
+    { n: "5", label: "Division", hint: "Waiting", href: "school-submit.html", state: "lock" },
+    { n: "6", label: "Result", hint: "Not yet", href: "school-submit.html", state: "lock" }
+  ];
+  const wrap = document.createElement("div");
+  wrap.className = "flow-wrap";
+  wrap.innerHTML = `
+    <div class="flow">
+      ${steps.map((s) => `
+        <a class="flow-step ${s.state}" href="${s.href}">
+          <div class="flow-dot">${s.state === "done" ? "✓" : s.n}</div>
+          <b>${s.label}</b>
+          <small>${s.hint}</small>
+        </a>
+      `).join("")}
+    </div>
+    <div class="flow-banner">
+      <div>
+        <b>You are here: fix returned MOV, then submit</b>
+        <p class="muted">Path: Encode → MOVs → School Head QA → Submit to Division → Validation → Functional (10/12).</p>
+      </div>
+      ${page === "school-submit.html" ? "" : `<a class="btn inline" href="school-submit.html">Open submit</a>`}
+    </div>
+  `;
+  top.after(wrap);
 }
