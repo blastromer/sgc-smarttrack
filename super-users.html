@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users · Super Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('super')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Super Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="super.html">Overview</a>
+      <a href="super-divisions.html">Divisions</a>
+      <a class="active" href="super-users.html">Users & roles</a>
+      <a href="super-cycles.html">Cycles</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Users & roles</h1>
+        <p class="muted">Roles are assigned. Users do not self-select Super or Division.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Total users<b>12</b></div>
+      <div class="kpi">Super Admin<b>1</b></div>
+      <div class="kpi">Division Admin<b>3</b></div>
+      <div class="kpi">School Admin<b>8</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Role</th><th>Office / school</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Romer Necesario</td><td>romer.necesario@sgcsmarttrack.gov.ph</td><td>Super Admin</td><td>System</td><td><span class="badge ok">Active</span></td></tr>
+          <tr><td>Jovel J. Oberio</td><td>jovel.oberio@deped.gov.ph</td><td>Division Admin</td><td>SGOD / SGC Focal</td><td><span class="badge ok">Active</span></td></tr>
+          <tr><td>ASDS Validator</td><td>asds.cadiz@deped.gov.ph</td><td>Division Admin</td><td>Composite Team</td><td><span class="badge ok">Active</span></td></tr>
+          <tr><td>PSDS District 1</td><td>psds.d1@deped.gov.ph</td><td>Division Admin</td><td>District 1</td><td><span class="badge ok">Active</span></td></tr>
+          <tr><td>Maria Santos</td><td>school.head@deped.gov.ph</td><td>School Admin</td><td>Sample ES 123456</td><td><span class="badge ok">Active</span></td></tr>
+          <tr><td>Juan Dela Cruz</td><td>juan.delacruz@deped.gov.ph</td><td>School Admin</td><td>San Jose ES</td><td><span class="badge warn">Pending</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

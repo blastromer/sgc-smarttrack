@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schools · Division Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('division')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Division Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="division.html">Overview</a>
+      <a href="division-queue.html">Validation queue</a>
+      <a class="active" href="division-schools.html">Schools</a>
+      <a href="division-alerts.html">Alerts</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Schools</h1>
+        <p class="muted">Sample elementary schools in the 2026 SGC cycle.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Listed<b>186</b></div>
+      <div class="kpi">Functional<b>68</b></div>
+      <div class="kpi">Not yet<b>118</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>School</th><th>District</th><th>FIs met</th><th>MOVs</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sample Elementary School</td><td>District 1</td><td>7/12</td><td>14</td><td><span class="badge warn">Not yet</span></td></tr>
+          <tr><td>San Jose ES</td><td>District 1</td><td>9/12</td><td>18</td><td><span class="badge warn">Not yet</span></td></tr>
+          <tr><td>Rizal Central ES</td><td>District 2</td><td>10/12</td><td>22</td><td><span class="badge ok">Functional</span></td></tr>
+          <tr><td>Luna ES</td><td>District 2</td><td>12/12</td><td>28</td><td><span class="badge ok">Functional</span></td></tr>
+          <tr><td>Mabini ES</td><td>District 3</td><td>0/12</td><td>0</td><td><span class="badge bad">No data</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

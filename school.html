@@ -3,42 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>School Admin · SGC SmartTrack</title>
+  <title>Dashboard · School Admin</title>
   <link rel="stylesheet" href="css/app.css" />
 </head>
 <body class="app" onload="requireAuth('school')">
   <aside class="side">
     <div class="logo-mini">
       <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
-      <div>
-        <b>SGC SmartTrack</b><br />
-        <span style="color:#9bb4b8;font-size:12px">School Admin</span>
-      </div>
+      <div><b>SGC SmartTrack</b><br /><span class="muted">School Admin</span></div>
     </div>
     <nav class="nav">
       <a class="active" href="school.html">Dashboard</a>
-      <a href="#">My assessment</a>
-      <a href="#">MOV files</a>
-      <a href="#">Notifications</a>
+      <a href="school-assessment.html">My assessment</a>
+      <a href="school-movs.html">MOV files</a>
+      <a href="school-notifications.html">Notifications</a>
       <a href="#" onclick="logout()">Sign out</a>
     </nav>
   </aside>
   <section class="main">
     <div class="top">
       <div>
-        <h1>School Admin dashboard</h1>
-        <p style="color:#9bb4b8">Sample Elementary School · School ID 123456</p>
+        <h1>School dashboard</h1>
+        <p class="muted">Sample Elementary School · School ID 123456</p>
       </div>
       <span class="chip">Deadline in 12 days</span>
     </div>
     <div class="kpis">
-      <div class="kpi">Indicators met<b>7 / 12</b></div>
-      <div class="kpi">MOVs uploaded<b>14</b></div>
-      <div class="kpi">Validation<b>In progress</b></div>
-      <div class="kpi">AI self-score<b>Not yet</b></div>
+      <div class="kpi">Indicators met<b>7 / 12</b><small>Need 10 to be functional</small></div>
+      <div class="kpi">MOVs uploaded<b>14</b><small>Minimum + additional</small></div>
+      <div class="kpi">Returned<b>1</b><small>FI3A quorum</small></div>
+      <div class="kpi">Self-score<b>Not yet</b><small>58% complete</small></div>
     </div>
-    <div class="box">
-      Continue the SGC Functionality Assessment. Functional status requires at least 10 of 12 indicators with Minimum MOVs. FI3A was returned — missing quorum evidence.
+    <div class="grid2">
+      <div class="box">
+        <b>Progress to functional (10/12)</b>
+        <div class="bar" style="margin-top:12px"><span style="width:58%"></span></div>
+        <p class="muted" style="margin-top:10px">7 met · 1 returned · 4 not started</p>
+      </div>
+      <div class="box">
+        <b>Next actions</b>
+        <p class="muted" style="margin-top:10px">Fix FI3A minutes (quorum).</p>
+        <p class="muted">Complete FI4–FI7 Minimum MOVs.</p>
+        <p class="muted">School Head QA before submit.</p>
+      </div>
     </div>
   </section>
   <script src="js/auth.js"></script>

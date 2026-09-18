@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divisions · Super Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('super')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Super Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="super.html">Overview</a>
+      <a class="active" href="super-divisions.html">Divisions</a>
+      <a href="super-users.html">Users & roles</a>
+      <a href="super-cycles.html">Cycles</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Divisions</h1>
+        <p class="muted">Pilot is one SDO. Region scale-up can add rows later.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Active SDOs<b>1</b><small>Cadiz City</small></div>
+      <div class="kpi">Schools mapped<b>186</b><small>Elementary</small></div>
+      <div class="kpi">Division Admins<b>3</b><small>Focal + validators</small></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>Division</th><th>Region</th><th>Schools</th><th>Submission</th><th>Functional</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Schools Division of Cadiz City</td>
+            <td>Negros Island Region</td>
+            <td>186</td>
+            <td>76%</td>
+            <td>68 (36.6%)</td>
+            <td><span class="badge ok">Pilot live</span></td>
+          </tr>
+          <tr>
+            <td>SDO sample (not activated)</td>
+            <td>Negros Island Region</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="badge warn">Queued</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

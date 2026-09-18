@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cycles · Super Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('super')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Super Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="super.html">Overview</a>
+      <a href="super-divisions.html">Divisions</a>
+      <a href="super-users.html">Users & roles</a>
+      <a class="active" href="super-cycles.html">Cycles</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Assessment cycles</h1>
+        <p class="muted">One official SGC FAT cycle is open for public elementary schools.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Open cycles<b>1</b></div>
+      <div class="kpi">Days remaining<b>12</b></div>
+      <div class="kpi">On-time target<b>90%</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>Cycle</th><th>Level</th><th>Opens</th><th>Deadline</th><th>Schools</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026 SGC Functionality Assessment</td>
+            <td>Public Elementary</td>
+            <td>Sep 1, 2026</td>
+            <td>Sep 30, 2026</td>
+            <td>186</td>
+            <td><span class="badge ok">Open</span></td>
+          </tr>
+          <tr>
+            <td>Secondary SGC monitoring (manual)</td>
+            <td>Public Secondary</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="badge warn">Not in tool</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

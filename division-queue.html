@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validation queue · Division Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('division')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Division Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="division.html">Overview</a>
+      <a class="active" href="division-queue.html">Validation queue</a>
+      <a href="division-schools.html">Schools</a>
+      <a href="division-alerts.html">Alerts</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Validation queue</h1>
+        <p class="muted">Review MOVs against SGC FAT Volume 2 rules.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Awaiting review<b>18</b></div>
+      <div class="kpi">Resubmitted<b>6</b></div>
+      <div class="kpi">Validated today<b>4</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>School</th><th>School ID</th><th>Self-score</th><th>Status</th><th>Submitted</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>San Jose Elementary School</td><td>123101</td><td>9/12</td><td><span class="badge warn">Needs validation</span></td><td>Sep 16</td></tr>
+          <tr><td>Rizal Central Elementary</td><td>123102</td><td>10/12</td><td><span class="badge ok">Resubmitted</span></td><td>Sep 17</td></tr>
+          <tr><td>Mabini Elementary School</td><td>123103</td><td>0/12</td><td><span class="badge bad">Overdue</span></td><td>—</td></tr>
+          <tr><td>Bonifacio ES</td><td>123104</td><td>11/12</td><td><span class="badge warn">In review</span></td><td>Sep 15</td></tr>
+          <tr><td>Luna Elementary School</td><td>123105</td><td>12/12</td><td><span class="badge ok">Validated</span></td><td>Sep 14</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

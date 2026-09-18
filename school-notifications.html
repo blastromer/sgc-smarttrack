@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications · School Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('school')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">School Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="school.html">Dashboard</a>
+      <a href="school-assessment.html">My assessment</a>
+      <a href="school-movs.html">MOV files</a>
+      <a class="active" href="school-notifications.html">Notifications</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Notifications</h1>
+        <p class="muted">School Head and designated encoder both receive these.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Unread<b>2</b></div>
+      <div class="kpi">This cycle<b>5</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>Date</th><th>Message</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sep 17</td><td>FI3A Minimum MOV returned — minutes do not show 50%+1 quorum.</td><td><span class="badge bad">Action needed</span></td></tr>
+          <tr><td>Sep 16</td><td>T-14 checkpoint: 7 of 12 indicators encoded.</td><td><span class="badge warn">Reminder</span></td></tr>
+          <tr><td>Sep 1</td><td>2026 SGC FAT cycle opened. Deadline Sep 30, 2026.</td><td><span class="badge ok">Info</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

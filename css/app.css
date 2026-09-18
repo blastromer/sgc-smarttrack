@@ -194,7 +194,41 @@ input:focus { border-color: var(--teal); }
   padding: 16px;
 }
 .kpi b { display: block; font-size: 26px; margin-top: 6px; color: var(--teal); }
+.kpi small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
 .grid2 { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.muted { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.data-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.badge.ok { background: #14352f; color: #7ee0d6; }
+.badge.warn { background: #3a2a16; color: #f0c36a; }
+.badge.bad { background: #3a1d16; color: #f0a07a; }
+.bar {
+  height: 8px;
+  background: #173038;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.bar > span { display: block; height: 100%; background: var(--teal); }
 
 @media (max-width: 980px) {
   .auth-shell, .app { grid-template-columns: 1fr; }

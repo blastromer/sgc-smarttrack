@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOV files · School Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('school')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">School Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="school.html">Dashboard</a>
+      <a href="school-assessment.html">My assessment</a>
+      <a class="active" href="school-movs.html">MOV files</a>
+      <a href="school-notifications.html">Notifications</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>MOV files</h1>
+        <p class="muted">Means of Verification uploaded for this cycle.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Files<b>14</b></div>
+      <div class="kpi">Valid<b>12</b></div>
+      <div class="kpi">Returned<b>1</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>File</th><th>Indicator</th><th>Type</th><th>Size</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FI1A-Minimum-Notice-of-Meeting.pdf</td><td>FI1A</td><td>Minimum</td><td>420 KB</td><td><span class="badge ok">Valid</span></td></tr>
+          <tr><td>FI1B-Minimum-Membership-List.pdf</td><td>FI1B</td><td>Minimum</td><td>210 KB</td><td><span class="badge ok">Valid</span></td></tr>
+          <tr><td>FI3A-Minimum-Resolution.pdf</td><td>FI3A</td><td>Minimum</td><td>680 KB</td><td><span class="badge bad">Returned — no quorum</span></td></tr>
+          <tr><td>FI2A-Minimum-Minutes-SPT.pdf</td><td>FI2A</td><td>Minimum</td><td>1.1 MB</td><td><span class="badge ok">Valid</span></td></tr>
+          <tr><td>Validity-Form-2026.pdf</td><td>Validity</td><td>Required</td><td>90 KB</td><td><span class="badge warn">Draft</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

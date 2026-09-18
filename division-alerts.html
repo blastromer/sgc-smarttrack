@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alerts · Division Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('division')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">Division Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="division.html">Overview</a>
+      <a href="division-queue.html">Validation queue</a>
+      <a href="division-schools.html">Schools</a>
+      <a class="active" href="division-alerts.html">Alerts</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Alerts</h1>
+        <p class="muted">Deadline and non-compliance notices sent to School Heads.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Overdue schools<b>21</b></div>
+      <div class="kpi">Emails queued<b>21</b></div>
+      <div class="kpi">Returned MOVs<b>19</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>When</th><th>School</th><th>Trigger</th><th>Channel</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sep 18, 07:00</td><td>Mabini ES</td><td>Deadline missed</td><td>Email</td><td><span class="badge bad">Sent</span></td></tr>
+          <tr><td>Sep 17, 07:00</td><td>San Jose ES</td><td>T-3 incomplete</td><td>Email</td><td><span class="badge warn">Sent</span></td></tr>
+          <tr><td>Sep 17, 14:22</td><td>Sample ES</td><td>FI3A MOV returned</td><td>Email</td><td><span class="badge warn">Sent</span></td></tr>
+          <tr><td>Sep 16, 07:00</td><td>21 schools</td><td>T-7 reminder</td><td>Email digest</td><td><span class="badge ok">Sent</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

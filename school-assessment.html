@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My assessment · School Admin</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('school')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div><b>SGC SmartTrack</b><br /><span class="muted">School Admin</span></div>
+    </div>
+    <nav class="nav">
+      <a href="school.html">Dashboard</a>
+      <a class="active" href="school-assessment.html">My assessment</a>
+      <a href="school-movs.html">MOV files</a>
+      <a href="school-notifications.html">Notifications</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>My assessment</h1>
+        <p class="muted">2026 SGC Functionality Assessment · public elementary</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Complete<b>7</b></div>
+      <div class="kpi">Returned<b>1</b></div>
+      <div class="kpi">Not started<b>4</b></div>
+    </div>
+    <div class="box">
+      <table class="data-table">
+        <thead>
+          <tr><th>Indicator</th><th>Title</th><th>Answer</th><th>MOV</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FI1</td><td>Members informed of roles</td><td>Yes</td><td>Minimum uploaded</td><td><span class="badge ok">Complete</span></td></tr>
+          <tr><td>FI2</td><td>Consultative body</td><td>Yes</td><td>Minimum uploaded</td><td><span class="badge ok">Complete</span></td></tr>
+          <tr><td>FI3</td><td>Regular SGC meetings</td><td>Yes</td><td>FI3A returned</td><td><span class="badge bad">Returned</span></td></tr>
+          <tr><td>FI4</td><td>Meetings with committees</td><td>—</td><td>Missing</td><td><span class="badge warn">In progress</span></td></tr>
+          <tr><td>FI5</td><td>Coordinate to School Head</td><td>—</td><td>None</td><td><span class="badge warn">Not started</span></td></tr>
+          <tr><td>FI7</td><td>LSB recommendations</td><td>—</td><td>None</td><td><span class="badge warn">Not started</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>
