@@ -11,8 +11,19 @@ Desktop.ini
 # Node
 node_modules/
 
-# Large source dumps (keep local)
+# Local DepEd source materials (not part of the Vercel app)
 *.zip
+*.pdf
+*.docx
+*.pptx
+CCD_MMC-38_Final-CP-Idea-Form_Oberio-1-1.pdf
+Enclosure*
+MOV TEMPLATES for School Governance Council Use (SGC)/
+[NOT YET FINAL] Memorandum and Attachments/
+[NOT YET FINAL] User guide Vol 1 and 2/
+docs/SGC-SmartTrack-*
+docs/generate_*.py
+docs/workflow_assets/
 
 # Python
 __pycache__/

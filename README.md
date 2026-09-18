@@ -1,14 +1,10 @@
 # SGC SmartTrack
 
-AI-assisted School Governance Council (SGC) compliance portal for DepEd — prototype for **Schools Division of Cadiz City**.
+Static DepEd SGC portal prototype for **Schools Division of Cadiz City**. Built to deploy on **Vercel**.
 
-Built for **Jovel J. Oberio** (EPS) by **Romer Necesario**.
+By **Romer Necesario** for **Jovel J. Oberio**.
 
-## Live prototype (static)
-
-Open [`docs/ui-prototype/index.html`](docs/ui-prototype/index.html) or deploy `docs/ui-prototype` to Vercel.
-
-### Sample logins
+## Sample logins
 
 Password for all: `SmartTrack2026`
 
@@ -18,8 +14,8 @@ Password for all: `SmartTrack2026`
 | Division Admin | `jovel.oberio@deped.gov.ph` |
 | School Admin | `school.head@deped.gov.ph` |
 
-School Admin can also **register**; Super/Division accounts are assigned, not self-selected.
+Register creates a School Admin request. Super Admin and Division Admin are assigned accounts.
 
-## Policy alignment
+## Deploy on Vercel
 
-DepEd Order No. 26, s. 2022 — SGC Functionality Assessment Tool (12 indicators, 10/12 functional rule).
+Import https://github.com/blastromer/sgc-smarttrack — root directory is this repo (no subfolder).
