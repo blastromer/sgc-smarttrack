@@ -108,6 +108,7 @@ function initChrome(user) {
   if (!document.body.classList.contains("app")) return;
   decorateNav();
   pinSignOut();
+  decorateKpis();
   mountNotices(user.role);
 }
 
@@ -117,6 +118,77 @@ function decorateNav() {
     if (ICONS[label] && !a.querySelector("svg")) {
       a.insertAdjacentHTML("afterbegin", ICONS[label]);
     }
+  });
+}
+
+const KPI_ICONS = {
+  Files: ico('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/>'),
+  Valid: ico('<circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 5-5"/>'),
+  Returned: ico('<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>'),
+  Complete: ico('<circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 5-5"/>'),
+  "Not started": ico('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),
+  Unread: ico('<path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9"/><path d="M10 20a2 2 0 0 0 4 0"/>'),
+  "This cycle": ico('<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>'),
+  "Indicators met": ico('<path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/>'),
+  "MOVs uploaded": ico('<path d="M3 7h6l2 2h10v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>'),
+  "Self-score": ico('<path d="M12 3l2.2 6.6H21l-5.4 4 2.1 6.4L12 16.8 6.3 20l2.1-6.4L3 9.6h6.8z"/>'),
+  Schools: ico('<path d="M3 10l9-6 9 6v10H3V10z"/><path d="M9 20v-6h6v6"/>'),
+  Submitted: ico('<path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 21h14"/>'),
+  Overdue: ico('<circle cx="12" cy="12" r="8"/><path d="M12 7v6l4 2"/>'),
+  Functional: ico('<path d="M8.5 12.5l2.5 2.5 5-5"/><rect x="4" y="4" width="16" height="16" rx="2"/>'),
+  Queue: ico('<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>'),
+  "TA flagged": ico('<path d="M12 3l9 16H3L12 3z"/><path d="M12 10v4M12 17h.01"/>'),
+  "Avg FIs met": ico('<path d="M4 18V8M10 18V4M16 18v-7M22 18V6"/>'),
+  "Schools in cycle": ico('<path d="M3 10l9-6 9 6v10H3V10z"/><path d="M9 20v-6h6v6"/>'),
+  "Functional SGCs": ico('<path d="M8.5 12.5l2.5 2.5 5-5"/><rect x="4" y="4" width="16" height="16" rx="2"/>'),
+  "Submission rate": ico('<path d="M4 18V10M10 18V6M16 18v-5M22 18V8"/>'),
+  Validated: ico('<circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 5-5"/>'),
+  "Under review": ico('<circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/>'),
+  "Returned MOVs": ico('<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>'),
+  "Admin accounts": ico('<circle cx="9" cy="8" r="3"/><path d="M3 19c1.2-3 3.5-4.5 6-4.5S13.8 16 15 19"/>'),
+  "Active SDOs": ico('<rect x="4" y="10" width="16" height="10"/><path d="M4 10V7l8-4 8 4v3"/>'),
+  "Schools mapped": ico('<path d="M3 10l9-6 9 6v10H3V10z"/><path d="M9 20v-6h6v6"/>'),
+  "Division Admins": ico('<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c1.2-3 3.5-4.5 6-4.5S13.8 16 15 19"/>'),
+  "Total users": ico('<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c1.2-3 3.5-4.5 6-4.5S13.8 16 15 19"/>'),
+  "Super Admin": ico('<path d="M12 3l2.2 6.6H21l-5.4 4 2.1 6.4L12 16.8 6.3 20l2.1-6.4L3 9.6h6.8z"/>'),
+  "Division Admin": ico('<rect x="4" y="10" width="16" height="10"/><path d="M4 10V7l8-4 8 4v3"/>'),
+  "School Admin": ico('<path d="M3 10l9-6 9 6v10H3V10z"/><path d="M9 20v-6h6v6"/>'),
+  "Open cycles": ico('<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>'),
+  "Days remaining": ico('<circle cx="12" cy="12" r="8"/><path d="M12 7v6l4 2"/>'),
+  "On-time target": ico('<circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 5-5"/>'),
+  Listed: ico('<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>'),
+  "Not yet": ico('<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'),
+  "Awaiting review": ico('<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2"/>'),
+  Resubmitted: ico('<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>'),
+  "Validated today": ico('<circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 5-5"/>'),
+  "Overdue schools": ico('<circle cx="12" cy="12" r="8"/><path d="M12 7v6l4 2"/>'),
+  "Emails queued": ico('<path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/>')
+};
+
+const KPI_TONE = {
+  Returned: "bad",
+  "Returned MOVs": "bad",
+  Overdue: "bad",
+  "Overdue schools": "bad",
+  "Not started": "warn",
+  "Not yet": "warn",
+  "TA flagged": "warn",
+  Unread: "warn",
+  "Under review": "warn",
+  "Awaiting review": "warn"
+};
+
+function decorateKpis() {
+  document.querySelectorAll(".kpi").forEach((kpi) => {
+    if (kpi.querySelector(".kpi-head")) return;
+    const labelNode = [...kpi.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+    if (!labelNode) return;
+    const text = labelNode.textContent.trim();
+    const head = document.createElement("div");
+    head.className = "kpi-head";
+    head.innerHTML = `${KPI_ICONS[text] || ICONS.Dashboard}<span>${text}</span>`;
+    kpi.replaceChild(head, labelNode);
+    if (KPI_TONE[text]) kpi.classList.add(KPI_TONE[text]);
   });
 }
 
