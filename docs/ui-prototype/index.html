@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · SGC SmartTrack</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="brand-row">
+          <img class="seal" src="assets/deped-seal.png" alt="DepEd official seal" />
+          <img class="wordmark" src="assets/deped-wordmark.png" alt="DepEd Department of Education logo" />
+          <img class="division" src="assets/cadiz-division-seal.png" alt="Schools Division of Cadiz City seal" />
+        </div>
+        <div>
+          <div class="kicker">GOVERNANCE INTELLIGENCE</div>
+          <h1>SGC SmartTrack</h1>
+          <p>AI-assisted School Governance Council assessment, MOV validation, and division diagnostics — aligned with DepEd Order No. 26, s. 2022.</p>
+          <div class="ai-pill"><span class="pulse"></span> Responsible AI decision support · human-in-the-loop</div>
+        </div>
+        <p style="font-size:12px;color:#b7c9cb">Authorized DepEd personnel only. Your assigned role opens the correct portal after sign-in.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <form class="card" onsubmit="handleLogin(event)">
+        <h2>Sign in</h2>
+        <p class="sub">Use your official DepEd email. The system routes you automatically as Super Admin, Division Admin, or School Admin.</p>
+
+        <label for="email">DepEd email</label>
+        <input id="email" type="email" autocomplete="username" placeholder="juan.delacruz@deped.gov.ph" required />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
+
+        <div class="row">
+          <span></span>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn" type="submit">Sign in to SmartTrack</button>
+        <div id="err" class="err"></div>
+        <p class="foot">No account yet? <a href="register.html">Create a School Admin account</a></p>
+
+        <div class="samples">
+          <h3>Sample login (clickable)</h3>
+          <p>Prototype UAT accounts — password for all: <b>SmartTrack2026</b></p>
+          <button type="button" class="sample" onclick="sampleLogin('super')">
+            <div>
+              <b>romer.necesario@sgcsmarttrack.gov.ph</b>
+              <span>Opens Super Admin portal after authentication</span>
+            </div>
+            <span class="tag">SUPER ADMIN</span>
+          </button>
+          <button type="button" class="sample" onclick="sampleLogin('division')">
+            <div>
+              <b>jovel.oberio@deped.gov.ph</b>
+              <span>Opens Division Admin portal after authentication</span>
+            </div>
+            <span class="tag">DIVISION ADMIN</span>
+          </button>
+          <button type="button" class="sample" onclick="sampleLogin('school')">
+            <div>
+              <b>school.head@deped.gov.ph</b>
+              <span>Opens School Admin portal after authentication</span>
+            </div>
+            <span class="tag">SCHOOL ADMIN</span>
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="js/auth.js"></script>
+</body>
+</html>

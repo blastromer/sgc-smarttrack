@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Division Admin · SGC SmartTrack</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('division')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div>
+        <b>SGC SmartTrack</b><br />
+        <span style="color:#9bb4b8;font-size:12px">Division Admin</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="active" href="division.html">Overview</a>
+      <a href="#">Validation queue</a>
+      <a href="#">Schools</a>
+      <a href="#">Alerts</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>Division diagnostic dashboard</h1>
+        <p style="color:#9bb4b8">Jovel J. Oberio · SDO Composite Team</p>
+      </div>
+      <span class="chip">21 schools overdue</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Schools in cycle<b>186</b></div>
+      <div class="kpi">Submitted<b>142</b></div>
+      <div class="kpi">Overdue<b>21</b></div>
+      <div class="kpi">Functional (≥10/12)<b>68</b></div>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <b>AI gap scan</b>
+        <p style="margin-top:8px;color:#9bb4b8">Weakest indicators: FI7 LSB recommendations, FI11 transparency, FI3 meetings. Suggested TA: coaching on resolutions and quorum evidence.</p>
+      </div>
+      <div class="box">
+        <b>Compliance funnel</b>
+        <p style="margin-top:8px;color:#9bb4b8">Not started 24 · In progress 20 · Submitted 74 · Under validation 48 · Validated 68</p>
+      </div>
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

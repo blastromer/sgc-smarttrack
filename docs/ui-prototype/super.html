@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Admin · SGC SmartTrack</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('super')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div>
+        <b>SGC SmartTrack</b><br />
+        <span style="color:#9bb4b8;font-size:12px">Super Admin</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="active" href="super.html">Overview</a>
+      <a href="#">Divisions</a>
+      <a href="#">Users & roles</a>
+      <a href="#">Cycles</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>System overview</h1>
+        <p style="color:#9bb4b8">Role detected from account: Super Admin</p>
+      </div>
+      <span class="chip">AI governance layer armed</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Active divisions<b>1</b></div>
+      <div class="kpi">School accounts<b>186</b></div>
+      <div class="kpi">Open cycles<b>1</b></div>
+      <div class="kpi">Admin users<b>12</b></div>
+    </div>
+    <div class="box">
+      Super Admin provisions Division Admin and School Admin accounts. National and Regional portals can be added later without changing login.
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>

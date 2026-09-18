@@ -1,0 +1,23 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Secrets
+.env
+.env.*
+*.pem
+
+# Node
+node_modules/
+
+# Large source dumps (keep local)
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# Editors
+.idea/
+.vscode/

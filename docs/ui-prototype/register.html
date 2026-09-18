@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register · SGC SmartTrack</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="brand-row">
+          <img class="seal" src="assets/deped-seal.png" alt="DepEd official seal" />
+          <img class="wordmark" src="assets/deped-wordmark.png" alt="DepEd Department of Education logo" />
+          <img class="division" src="assets/cadiz-division-seal.png" alt="Schools Division of Cadiz City seal" />
+        </div>
+        <div>
+          <div class="kicker">SCHOOL ACCESS REQUEST</div>
+          <h1>Register your school</h1>
+          <p>School Heads and designated encoders may request a School Admin account. Super Admin and Division Admin are provisioned by the system administrator — they are never self-selected.</p>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <form class="card" onsubmit="handleRegister(event)">
+        <h2>Create account</h2>
+        <p class="sub">Use your official DepEd email. After Division verification, sign-in will open the School Admin portal.</p>
+        <label>Full name</label>
+        <input required placeholder="Juan Dela Cruz" />
+        <label>DepEd email</label>
+        <input type="email" required placeholder="juan.delacruz@deped.gov.ph" />
+        <label>School name / School ID</label>
+        <input required placeholder="Sample Elementary School · 123456" />
+        <label>Position</label>
+        <input required placeholder="School Head" />
+        <label>Password</label>
+        <input type="password" required minlength="8" placeholder="Minimum 8 characters" />
+        <button class="btn" type="submit" style="margin-top:16px">Submit registration</button>
+        <p class="foot">Already registered? <a href="index.html">Sign in</a></p>
+      </form>
+    </section>
+  </main>
+  <script src="js/auth.js"></script>
+</body>
+</html>

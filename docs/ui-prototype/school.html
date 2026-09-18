@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Admin · SGC SmartTrack</title>
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="app" onload="requireAuth('school')">
+  <aside class="side">
+    <div class="logo-mini">
+      <img src="assets/cadiz-division-seal.png" alt="SDO Cadiz City" />
+      <div>
+        <b>SGC SmartTrack</b><br />
+        <span style="color:#9bb4b8;font-size:12px">School Admin</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="active" href="school.html">Dashboard</a>
+      <a href="#">My assessment</a>
+      <a href="#">MOV files</a>
+      <a href="#">Notifications</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="top">
+      <div>
+        <h1>School Admin dashboard</h1>
+        <p style="color:#9bb4b8">Sample Elementary School · School ID 123456</p>
+      </div>
+      <span class="chip">Deadline in 12 days</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi">Indicators met<b>7 / 12</b></div>
+      <div class="kpi">MOVs uploaded<b>14</b></div>
+      <div class="kpi">Validation<b>In progress</b></div>
+      <div class="kpi">AI self-score<b>Not yet</b></div>
+    </div>
+    <div class="box">
+      Continue the SGC Functionality Assessment. Functional status requires at least 10 of 12 indicators with Minimum MOVs. FI3A was returned — missing quorum evidence.
+    </div>
+  </section>
+  <script src="js/auth.js"></script>
+</body>
+</html>
